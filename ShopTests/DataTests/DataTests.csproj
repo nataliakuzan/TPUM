@@ -49,16 +49,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShopTests.cs" />
+    <Compile Include="DataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Shop\Shop\Shop.csproj">
-      <Project>{12590645-6f74-43f3-8944-b156cce8a80f}</Project>
-      <Name>Shop</Name>
+    <ProjectReference Include="..\..\Shop\Data\Data.csproj">
+      <Project>{223df63d-8b62-452c-b9c2-9ea54e42c7c5}</Project>
+      <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
