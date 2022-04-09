@@ -38,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
+    <Compile Include="ItemFactory.cs" />
+    <Compile Include="ItemRepository.cs" />
+    <Compile Include="Logic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

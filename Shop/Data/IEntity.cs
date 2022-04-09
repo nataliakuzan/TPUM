@@ -4,11 +4,8 @@ using System.Text;
 
 namespace Data
 {
-    class Data
+    interface IEntity
     {
-        static void Main(string[] args)
-        {
-        }
+        int Id { get; set; }
     }
-
 }

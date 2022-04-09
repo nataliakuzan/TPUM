@@ -10,8 +10,7 @@ namespace BussinessLogicTests
         [TestMethod]
         public void TestAddProduct()
         {
-            Shop s = new Shop();
-            s.AddProduct(1);
+            
         }
     }
 }

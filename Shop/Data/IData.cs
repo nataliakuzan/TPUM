@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Data
 {
-    class Data
+    public interface IData
     {
-        static void Main(string[] args)
-        {
-        }
+        //void BuyItem(IEntity item);
+        void UpdateItem();
     }
-
 }

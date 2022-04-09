@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Data;
 
 namespace BusinessLogic
 {
-    class BusinessLogic
+    class Logic
     {
-        static void Main(string[] args)
-        {
-        }
     }
-    
 }
