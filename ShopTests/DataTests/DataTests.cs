@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace DataTests
+namespace Shop.DataTests
 {
     [TestClass]
     public class DataTests

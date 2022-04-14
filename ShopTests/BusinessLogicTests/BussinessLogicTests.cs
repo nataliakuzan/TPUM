@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using BusinessLogic;
+using Shop.BusinessLogic;
 
-namespace BussinessLogicTests
+namespace Shop.BussinessLogicTests
 {
     [TestClass]
     public class BussinessLogicTest

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Presentation
+namespace Shop.Presentation
 {
     class Program
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Shop.BusinessLogic
+namespace Shop.Data
 {
-    class Logic
+    class Type
     {
     }
 }

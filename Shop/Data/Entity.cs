@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data
+namespace Shop.Data
 {
     internal class Entity : IEntity
     {

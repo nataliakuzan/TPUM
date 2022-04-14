@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Data;
+using Shop.Data;
 
-namespace BusinessLogic
+namespace Shop.BusinessLogic
 {
     class BusinessLogic
     {
