@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using Moq;
+using Microsoft.Build.Tasks.Deployment.Bootstrapper;
 
 namespace Shop.DataTests
 {
@@ -7,9 +8,10 @@ namespace Shop.DataTests
     public class DataTests
     {
         [TestMethod]
-        public void ReadItemTest()
+        public void ProductQuantityTest()
         {
-            
+            Mock<Product> mock = new Mock<Product>("Name", 10.0, 5);
         }
+
     }
 }

@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shop\BusinessLogic\BusinessLogic.csproj">
-      <Project>{2ab1df17-4346-4dfa-91c1-35e7fad1dec3}</Project>
+      <Project>{982df189-95ca-4b27-8d90-d69c28ebdf51}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>

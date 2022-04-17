@@ -1,6 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Shop.BusinessLogic;
 
 namespace Shop.BussinessLogicTests
 {
@@ -8,7 +6,7 @@ namespace Shop.BussinessLogicTests
     public class BussinessLogicTest
     {
         [TestMethod]
-        public void TestAddProduct()
+        public void ProductRepositoryTest()
         {
             
         }
