@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 namespace Shop.Presentation.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy Clothes.xaml
+    /// Logika interakcji dla klasy BasketView.xaml
     /// </summary>
-    public partial class Clothes : Window
+    public partial class BasketView : Window
     {
-        public Clothes()
+        public BasketView()
         {
-            
+
         }
     }
 }

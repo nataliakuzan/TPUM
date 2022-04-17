@@ -2,7 +2,7 @@
 
 namespace Shop.Presentation.Model
 {
-    public class ItemModel
+    public class ProductModel
     {
     }
 }

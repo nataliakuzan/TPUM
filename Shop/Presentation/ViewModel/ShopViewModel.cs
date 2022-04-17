@@ -2,7 +2,7 @@
 
 namespace Shop.Presentation.ViewModel
 {
-    public class ItemRepositoryViewModel
+    public class ShopViewModel
     {
     }
 }
