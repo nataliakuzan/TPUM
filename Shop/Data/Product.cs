@@ -1,27 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Shop.Data
 {
-    internal class Product
+    public class Product : IEntity
     {
-        private String ProductName;
+        private static int IdCounter = 1;
+        
+        private int ProductId;
+
+        private string ProductName;
         
         private float ProductPrice;
         
-        private int Quantity { get; set; }
+        private int ProductQuantity { get; set; }
 
-        private List<Tag> ProductTags;
+        private List<ProductType> ProductTypes;
 
-        public Product(String Name, float Price, int Qty, List<Tag> Tags)
+        int IEntity.Id => ProductId;
+
+        public Product(string Name, float Price, int Qty, List<ProductType> Types)
         {
+            ProductId = IdCounter;
+            IdCounter++;
+
             ProductName = Name;
             ProductPrice = Price;
-            Quantity = Qty;
-            ProductTags = Tags;
+            ProductQuantity = Qty;
+            ProductTypes = Types;
         }
 
-        public String Name
+        public int Id
+        {
+            get
+            {
+                return ProductId;
+            }
+        }
+
+        public string Name
         {
             get
             {
@@ -37,21 +53,28 @@ namespace Shop.Data
             }
         }
 
-        public List<Tag> Tags
+        public int Quantity
         {
             get
             {
-                return ProductTags;
+                return ProductQuantity;
+            }
+        }
+
+        public List<ProductType> Types
+        {
+            get
+            {
+                return ProductTypes;
             }
         }
 
         public void DecreaseQuantity()
         {
-            if (Quantity > 0)
+            if (ProductQuantity > 0)
             {
-                Quantity--;
+                ProductQuantity--;
             }
         }
-
     }
 }

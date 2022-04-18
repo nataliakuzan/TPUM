@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Shop.Data;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Shop.BusinessLogic
 {
-    class OrderFactory
+    public class OrderFactory : IOrderFactory
     {
+        public Order CreateOrder(List<BasketItem> BasketItems, string Name, string LastName, string Address)
+        {
+            return new Order(BasketItems, Name, LastName, Address);
+        }
     }
 }

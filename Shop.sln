@@ -6,18 +6,24 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicTest", "ShopTests\BusinessLogicTests\BusinessLogicTest.csproj", "{D990647D-814F-4941-A025-2DE3977BA4FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Shop\Presentation\Presentation.csproj", "{5962EFC5-F5DF-466A-8186-D523F19C264B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{982DF189-95CA-4B27-8D90-D69C28EBDF51} = {982DF189-95CA-4B27-8D90-D69C28EBDF51}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTests", "ShopTests\DataTests\DataTests.csproj", "{EDD00819-FD5E-4D66-94ED-D80F622FE7A0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "Shop\Presentation\View\View.csproj", "{FE37DD83-4149-4005-AA77-B90BEBB7A726}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Shop\Presentation\Model\Model.csproj", "{0FF4B8C4-DDF4-4DDB-85AC-185528E05B99}"
+	ProjectSection(ProjectDependencies) = postProject
+		{982DF189-95CA-4B27-8D90-D69C28EBDF51} = {982DF189-95CA-4B27-8D90-D69C28EBDF51}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "Shop\Presentation\ViewModel\ViewModel.csproj", "{F2B65F32-9575-4CAC-80AC-1F85E1575F9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Shop\Data\Data.csproj", "{A1734734-EC9C-4AED-A02E-400825E84AD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Shop\Data\Data.csproj", "{A1734734-EC9C-4AED-A02E-400825E84AD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "Shop\BusinessLogic\BusinessLogic.csproj", "{982DF189-95CA-4B27-8D90-D69C28EBDF51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "Shop\BusinessLogic\BusinessLogic.csproj", "{982DF189-95CA-4B27-8D90-D69C28EBDF51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Shop.Data;
 
 namespace Shop.BusinessLogic
 {
-    class OrderRepository
+    public class OrderRepository
     {
+        public void Save(Store Shop, Order Order)
+        {
+            Shop.AddOrder(Order);
+        }
     }
 }

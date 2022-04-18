@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Shop.Data;
 
 namespace Shop.BusinessLogic
 {
-    class BasketItemFactory
+    public class BasketItemFactory : IBasketItemFactory
     {
+        public BasketItem CreateBasketItem(Product Product, int Quantity)
+        {
+            return new BasketItem(Product, Quantity);
+        }
     }
 }

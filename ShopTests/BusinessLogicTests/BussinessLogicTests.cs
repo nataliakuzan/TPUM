@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using Shop.BusinessLogic;
 
 namespace Shop.BussinessLogicTests
@@ -10,7 +9,7 @@ namespace Shop.BussinessLogicTests
         [TestMethod]
         public void ProductRepositoryTest()
         {
-            Mock <ProductRepository> mock = new Mock<ProductRepository>();
+            ProductRepository repository = new ProductRepository();
         }
     }
 }

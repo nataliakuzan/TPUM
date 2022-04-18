@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop.Presentation.View"
         mc:Ignorable="d"
-        Title="BasketView" Height="450" Width="800">
+        Title="Basket Summary" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF6A988" Offset="0.265"/>
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FFFC9D92" Offset="0.696"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Margin="50,34,50,349" FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323">
+            Your Basket Summary
+        </TextBlock>
+        <DataGrid Margin="50,90,50,100" Background="#FFFFEBEB" BorderBrush="#FFFFEBEB">
+            <DataGrid.Columns></DataGrid.Columns>
+        </DataGrid>
+        <Button Height="30" Width="120" Margin="630,347,50,50" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B">
+            Order
+        </Button>
     </Grid>
 </Window>

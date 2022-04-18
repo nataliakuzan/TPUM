@@ -6,7 +6,24 @@
         xmlns:local="clr-namespace:Shop.Presentation.View"
         mc:Ignorable="d"
         Title="Clothes" Height="450" Width="800">
-    <Grid Background="#FFAFEAFF">
-        
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFA17A" Offset="0.989"/>
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FFFFABA1" Offset="0.557"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ItemsControl Margin="20,50,660,100" Foreground="#FF2C2C2C">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Label/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <UniformGrid Margin="150,50,50,100" Columns="4"/>
+        <Button Height="30" Width="120" Margin="630,350,50,50" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFF6B6B" Background="#FFFF6B6B">
+            Add to Basket
+        </Button>
     </Grid>
 </Window>

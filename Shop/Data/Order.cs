@@ -3,15 +3,27 @@ using System.Collections.Generic;
 
 namespace Shop.Data
 {
-    class Order
+    public class Order : IEntity
     {
-        private List<BasketItem> Items;
-        private String ClientName;
-        private String ClientLastName;
-        private String ClientAddress;
+        private static int IdCounter = 1;
 
-        public Order(List<BasketItem> OrderItems, String Name, String LastName, String Address)
+        private int OrdertId;
+
+        private List<BasketItem> Items;
+
+        private string ClientName;
+
+        private string ClientLastName;
+
+        private string ClientAddress;
+
+        int IEntity.Id => OrdertId;
+
+        public Order(List<BasketItem> OrderItems, string Name, string LastName, string Address)
         {
+            OrdertId = IdCounter;
+            IdCounter++;
+
             Items = OrderItems;
             ClientName = Name;
             ClientLastName = LastName;

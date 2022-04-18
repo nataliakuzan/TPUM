@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop.Presentation.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FFAFEAFF">
-
+        Title="Shop" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFF804C"/>
+                <GradientStop Color="#FFFFCFCF" Offset="0.606"/>
+                <GradientStop Color="#FFF68173" Offset="0.227"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Margin="10,10,10,10" FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" VerticalAlignment="Center" HorizontalAlignment="Center">
+            Clothes Shopping
+        </TextBlock>
+        <TextBlock Margin="10,120,10,10" FontSize="20" FontFamily="Montserrat" Foreground="#FF232323" VerticalAlignment="Center" HorizontalAlignment="Center">
+            Check out the new collection!
+        </TextBlock>
+        <Button Height="30" Width="120" Margin="630,347,50,50" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B">
+            Start
+        </Button>
     </Grid>
 </Window>
