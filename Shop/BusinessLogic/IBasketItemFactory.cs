@@ -4,7 +4,7 @@ using Shop.Data;
 
 namespace Shop.BusinessLogic
 {
-    interface IBasketItemFactory
+    public interface IBasketItemFactory
     {
         BasketItem CreateBasketItem(Product Product, int Quantity);
     }

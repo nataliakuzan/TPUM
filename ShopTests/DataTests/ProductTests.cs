@@ -23,7 +23,7 @@ namespace Shop.DataTests
 
             Product Product = new Product("Blue Jeans", 20, 5, ProductTypeList);
 
-            Product.DecreaseQuantity();
+            Product.DecreaseQuantity(1);
 
             Assert.AreEqual(4, Product.Quantity);
         }
@@ -51,7 +51,7 @@ namespace Shop.DataTests
             Store.AddProduct(ProductToModify);
             Store.AddProduct(new Product("Grey Jeans", 10, 7, ProductTypeList));
 
-            ProductToModify.DecreaseQuantity();
+            ProductToModify.DecreaseQuantity(1);
 
             Store.ReplaceProduct(ProductToModify);
 

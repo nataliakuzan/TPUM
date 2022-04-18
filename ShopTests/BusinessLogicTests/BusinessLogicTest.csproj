@@ -62,7 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BussinessLogicTests.cs" />
+    <Compile Include="OrderCreatorTest.cs" />
+    <Compile Include="OrderRepositoryTests.cs" />
+    <Compile Include="ProductRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +74,10 @@
     <ProjectReference Include="..\..\Shop\BusinessLogic\BusinessLogic.csproj">
       <Project>{982df189-95ca-4b27-8d90-d69c28ebdf51}</Project>
       <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shop\Data\Data.csproj">
+      <Project>{A1734734-EC9C-4AED-A02E-400825E84AD6}</Project>
+      <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

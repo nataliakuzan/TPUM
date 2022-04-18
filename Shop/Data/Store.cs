@@ -37,9 +37,9 @@ namespace Shop.Data
             return Products.Find(x => x.Name.Contains(Name));
         }
 
-        public Product GetProductByTypes(ProductType Type)
+        public List<Product> GetProductByTypes(ProductType Type)
         {
-            return Products.Find(x => x.Types.Contains(Type));
+            return Products.FindAll(x => x.Types.Contains(Type));
         }
 
         public void AddOrder(Order order)

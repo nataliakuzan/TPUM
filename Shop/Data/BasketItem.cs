@@ -6,8 +6,8 @@
 
         private int BasketItemQuantity;
 
-        private static int IdCounter = 1; 
-        
+        private static int IdCounter = 1;
+
         private int BasketItemId;
 
         int IEntity.Id => BasketItemId;
@@ -21,13 +21,7 @@
             BasketItemQuantity = Quantity;
         }
 
-        public int Quantity
-        {
-            get
-            {
-                return BasketItemQuantity;
-            }
-        }
+        public int Quantity => BasketItemQuantity;
 
         public float GetTotalPrice()
         {

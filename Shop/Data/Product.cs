@@ -37,43 +37,19 @@ namespace Shop.Data
             }
         }
 
-        public string Name
-        {
-            get
-            {
-                return ProductName;
-            }
-        }
-        
-        public float Price
-        {
-            get
-            {
-                return ProductPrice;
-            }
-        }
+        public string Name => ProductName;
 
-        public int Quantity
-        {
-            get
-            {
-                return ProductQuantity;
-            }
-        }
+        public float Price => ProductPrice;
 
-        public List<ProductType> Types
-        {
-            get
-            {
-                return ProductTypes;
-            }
-        }
+        public int Quantity => ProductQuantity;
 
-        public void DecreaseQuantity()
+        public List<ProductType> Types => ProductTypes;
+
+        public void DecreaseQuantity(int Quantity)
         {
-            if (ProductQuantity > 0)
+            if (ProductQuantity > 0 && Quantity <= ProductQuantity)
             {
-                ProductQuantity--;
+                ProductQuantity -= Quantity;
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Shop.Data;
+using System.Collections.Generic;
 
 namespace Shop.BusinessLogic
 {
@@ -26,7 +27,7 @@ namespace Shop.BusinessLogic
             return Shop.GetProductByName(Name);
         }
 
-        public Product FetchByType(Store Shop, ProductType Type)
+        public List<Product> FetchByType(Store Shop, ProductType Type)
         {
             return Shop.GetProductByTypes(Type);
         }

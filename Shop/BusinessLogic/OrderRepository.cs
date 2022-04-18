@@ -2,7 +2,7 @@
 
 namespace Shop.BusinessLogic
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         public void Save(Store Shop, Order Order)
         {
