@@ -18,7 +18,28 @@
         <TextBlock Margin="50,34,50,349" FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323">
             Your Basket Summary
         </TextBlock>
-        <DataGrid Margin="50,90,50,100" Background="#FFFFEBEB" BorderBrush="#FFFFEBEB">
+        <TextBlock Margin="50,85,50,323" FontSize="15" FontWeight="Bold" FontFamily="Open Sans" Foreground="#FF232323">
+            Your Information
+        </TextBlock>
+        <TextBlock Margin="50,111,50,305" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+            First Name :
+        </TextBlock>
+        <TextBox Margin="131,111,50,305" MaxLength="30" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+
+        </TextBox>
+        <TextBlock Margin="50,134,50,282" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+            Last Name :
+        </TextBlock>
+        <TextBox Margin="131,134,50,282" MaxLength="30" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+
+        </TextBox>
+        <TextBlock Margin="50,158,50,260" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+            Address :
+        </TextBlock>
+        <TextBox Margin="131,157,50,259" MaxLength="30" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+
+        </TextBox>
+        <DataGrid Margin="50,185,50,95" Background="#FFFFEBEB" BorderBrush="#FFFFEBEB">
             <DataGrid.Columns></DataGrid.Columns>
         </DataGrid>
         <Button Height="30" Width="120" Margin="630,347,50,50" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B">

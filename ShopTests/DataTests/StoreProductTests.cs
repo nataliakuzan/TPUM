@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Shop.DataTests
 {
     [TestClass]
-    public class ProductTests
+    public class StoreProductTests
     {
         List<ProductType> ProductTypeList;
 

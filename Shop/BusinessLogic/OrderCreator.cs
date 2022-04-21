@@ -20,7 +20,8 @@ namespace Shop.BusinessLogic
             IOrderRepository OrderRepository,
             IBasketItemFactory BasketItemFactory,
             IOrderFactory OrderFactory
-        ) {
+        )
+        {
             this.ProductRepository = ProductRepository;
             this.OrderRepository = OrderRepository;
             this.BasketItemFactory = BasketItemFactory;
@@ -29,11 +30,12 @@ namespace Shop.BusinessLogic
 
         public void OrderProducts(
             Store Store,
-            Dictionary<int, int> ProductIdsAndQuantities, 
-            string ClientName, 
+            Dictionary<int, int> ProductIdsAndQuantities,
+            string ClientName,
             string ClientLastName,
             string Address
-        ) {
+            )
+        {
             List<BasketItem> BasketItems = new List<BasketItem>();
 
             foreach (KeyValuePair<int, int> ProductIdAndQuantity in ProductIdsAndQuantities)

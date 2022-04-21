@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock Margin="10,10,10,10" FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" VerticalAlignment="Center" HorizontalAlignment="Center">
-            Clothes Shopping
+            Clothing Shop
         </TextBlock>
         <TextBlock Margin="10,120,10,10" FontSize="20" FontFamily="Montserrat" Foreground="#FF232323" VerticalAlignment="Center" HorizontalAlignment="Center">
             Check out the new collection!

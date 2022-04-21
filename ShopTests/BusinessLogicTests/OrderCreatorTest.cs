@@ -10,13 +10,13 @@ namespace Shop.BussinessLogicTests
     [TestClass]
     public class OrderCreatorTest
     {
-        private Mock<ProductRepository> ProductRepository;
+        private Mock<IProductRepository> ProductRepository;
 
-        private Mock<OrderRepository> OrderRepository;
+        private Mock<IOrderRepository> OrderRepository;
 
-        private Mock<BasketItemFactory> BasketItemFactory;
+        private Mock<IBasketItemFactory> BasketItemFactory;
 
-        private Mock<OrderFactory> OrderFactory;
+        private Mock<IOrderFactory> OrderFactory;
 
         private Mock<Store> Store;
 
@@ -29,10 +29,10 @@ namespace Shop.BussinessLogicTests
         [TestInitialize]
         public void Before()
         {
-            ProductRepository = new Mock<ProductRepository>();
-            OrderRepository = new Mock<OrderRepository>();
-            BasketItemFactory = new Mock<BasketItemFactory>();
-            OrderFactory = new Mock<OrderFactory>();
+            ProductRepository = new Mock<IProductRepository>();
+            OrderRepository = new Mock<IOrderRepository>();
+            BasketItemFactory = new Mock<IBasketItemFactory>();
+            OrderFactory = new Mock<IOrderFactory>();
 
             Store = new Mock<Store>();
 
@@ -42,18 +42,18 @@ namespace Shop.BussinessLogicTests
             ProductTypes.Add(new ProductType("Trousers"));
 
             Product1 = new Product("Blue Jeans", 10, 5, ProductTypes);
-            Product2 = new Product("Blue Jeans", 15, 7, ProductTypes);
+            Product2 = new Product("Gray Jeans", 15, 7, ProductTypes);
 
-            //ProductRepository.Setup(x => x.FetchById(Store.Object, Product1.Id)).Returns(Product1);
-            //ProductRepository.Setup(x => x.FetchById(Store.Object, Product2.Id)).Returns(Product2);
+            ProductRepository.Setup(x => x.FetchById(Store.Object, Product1.Id)).Returns(Product1);
+            ProductRepository.Setup(x => x.FetchById(Store.Object, Product2.Id)).Returns(Product2);
         }
 
         [TestMethod]
         public void ItShouldSaveOrder()
         {
             int Product1QuantityOrdered = 4;
-            string ClientName = "Uncle";
-            string ClientLastName = "Bob";
+            string ClientName = "Bob";
+            string ClientLastName = "Uncle";
             string Address = "491 Bryan Avenue, 55406, Minneapolis";
 
             Dictionary<int, int> IdsAndQuantitiesOrdered = new Dictionary<int, int>();
@@ -65,12 +65,13 @@ namespace Shop.BussinessLogicTests
 
             Order expectedOrder = new Order(expectedBasketItems, ClientName, ClientLastName, Address);
 
-            //BasketItemFactory.Setup(x => x.CreateBasketItem(Product1, Product1QuantityOrdered)).Returns(expectedBasketItem);
-            //OrderFactory.Setup(x => x.CreateOrder(expectedBasketItems, ClientName, ClientLastName, Address));
+            BasketItemFactory.Setup(x => x.CreateBasketItem(Product1, Product1QuantityOrdered)).Returns(expectedBasketItem);
+            OrderFactory.Setup(x => x.CreateOrder(expectedBasketItems, ClientName, ClientLastName, Address)).Returns(expectedOrder);
 
+            OrderRepository.Setup(x => x.Save(Store.Object, expectedOrder));
             //OrderRepository.Verify(x => x.Save(Store.Object, expectedOrder), Times.Once());
 
-            //OrderCreator.OrderProducts(Store.Object, IdsAndQuantitiesOrdered, ClientName, ClientLastName, Address);
+            OrderCreator.OrderProducts(Store.Object, IdsAndQuantitiesOrdered, ClientName, ClientLastName, Address);
         }
 
     }

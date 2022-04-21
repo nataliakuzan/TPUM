@@ -11,13 +11,7 @@ namespace Shop.Data
             TypeName = Name;
         }
 
-        public string Name
-        {
-            get
-            {
-                return TypeName;
-            }
-        }
+        public string Name => TypeName;
 
     }
 }
