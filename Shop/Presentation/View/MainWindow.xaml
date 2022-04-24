@@ -3,10 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Shop.Presentation.View"
+        xmlns:vm="clr-namespace:Shop.Presentation.ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="Shop" Height="450" Width="800">
-    <Grid>
+        Title="Shop" Height="600" Width="900">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Height="600" Width="900">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFFF804C"/>
@@ -14,14 +17,47 @@
                 <GradientStop Color="#FFF68173" Offset="0.227"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock Margin="10,10,10,10" FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Canvas Visibility="{Binding StartVisibility}" Grid.ColumnSpan="2">
+            <TextBlock FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" Canvas.Left="339" Canvas.Top="271">
             Clothing Shop
-        </TextBlock>
-        <TextBlock Margin="10,120,10,10" FontSize="20" FontFamily="Montserrat" Foreground="#FF232323" VerticalAlignment="Center" HorizontalAlignment="Center">
+            </TextBlock>
+            <TextBlock FontSize="20" FontFamily="Montserrat" Foreground="#FF232323" Canvas.Left="301" Canvas.Top="329">
             Check out the new collection!
-        </TextBlock>
-        <Button Height="30" Width="120" Margin="630,347,50,50" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B">
-            Start
-        </Button>
+            </TextBlock>
+            <Button Content="Start" Height="30" Width="120" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B" Command="{Binding ButtonClickShop}" Canvas.Left="700" Canvas.Top="480"/>
+        </Canvas>
+        <Canvas Visibility="{Binding ShopVisibility}" Grid.ColumnSpan="2">
+            <ItemsControl Foreground="#FF2C2C2C" Height="389" Canvas.Left="52" Canvas.Top="50" Width="130">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <UniformGrid Height="389" Width="607" Canvas.Left="213" Canvas.Top="50">
+                <StackPanel Orientation="Vertical">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="450">
+                <ItemsControl ItemsSource="{Binding Products}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Width="160" Height="80" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B" >
+                                        <StackPanel Width="140" Height="60" Orientation="Horizontal">
+                                            <TextBlock VerticalAlignment="Top" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductName}"/>
+                                            <TextBlock Text="&#xA;"/>
+                                            <TextBlock Text="&#xA;"/>
+                                            <TextBlock VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductPrice, StringFormat=Price : \{0:c\}}"/>
+                                        </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                </StackPanel>
+            </UniformGrid>
+            <Button Content="Add to Basket" Height="30" Width="120" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFF6B6B" Background="#FFFF6B6B" Command="{Binding ButtonClickBasket}" Canvas.Left="700" Canvas.Top="480"/>
+        </Canvas>
+        <Canvas Visibility="{Binding BasketVisibility}">
+            <Button Content="Order" Height="30" Width="120" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B" Command="{Binding ButtonClickShop}" Canvas.Left="700" Canvas.Top="480"/>
+        </Canvas>
     </Grid>
 </Window>

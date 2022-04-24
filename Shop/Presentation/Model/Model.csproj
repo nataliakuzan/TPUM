@@ -5,4 +5,8 @@
     <RootNamespace>Shop.Presentation.Model</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\BusinessLogic.csproj" />
+  </ItemGroup>
+
 </Project>
