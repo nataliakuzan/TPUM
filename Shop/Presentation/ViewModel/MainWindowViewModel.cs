@@ -32,7 +32,7 @@ namespace Shop.Presentation.ViewModel
 
             ButtonClickShop = new RelayCommand(() => OnClickShowShop());
             ButtonClickBasket = new RelayCommand(() => OnClickShowBasket());
-            ButtonFilterByType = new RelayCommand(() => OnClickFilerByType("Tops"));
+            ButtonFilterByType = new RelayCommand(() => OnClickFilerByType());
         }
 
         public ICommand ButtonClickShop { get; set; }
@@ -53,12 +53,12 @@ namespace Shop.Presentation.ViewModel
             StartVisibility = "Hidden";
         }
 
-        private void OnClickFilerByType(string Type)
+        private void OnClickFilerByType()
         {
-            _Products = new ObservableCollection<ProductModel>();
+            _Products.Clear();
             foreach (ProductModel Product in ModelLayer.Shop.GetListOfAllProducts())
             {
-                if (Product.ProductType == Type)
+                if (Product.ProductType.Equals("Tops"))
                 {
                     _Products.Add(Product);
                 }

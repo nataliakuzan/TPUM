@@ -30,7 +30,7 @@
             <ItemsControl ItemsSource="{Binding Types}" Foreground="#FF2C2C2C" Height="389" Canvas.Left="52" Canvas.Top="50" Width="130">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B" Command="{Binding Path=DataContext.OnClickFilerByType, RelativeSource={RelativeSource AncestorType=ItemsControl}, Mode=Default}" CommandParameter="{Binding}">
+                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B" Command="{Binding ButtonFilterByType}">
                             <TextBlock FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding}"/>
                         </Button>
                     </DataTemplate>
