@@ -24,24 +24,46 @@ namespace Shop.Presentation.ViewModel
             {
                 _Products.Add(Product);
             }
+            _Types = new List<string>();
+            foreach (string Type in ModelLayer.Shop.GetListOfAllTypes())
+            {
+                _Types.Add(Type);
+            }
 
             ButtonClickShop = new RelayCommand(() => OnClickShowShop());
             ButtonClickBasket = new RelayCommand(() => OnClickShowBasket());
+            ButtonFilterByType = new RelayCommand(() => OnClickFilerByType("Tops"));
         }
 
         public ICommand ButtonClickShop { get; set; }
         public ICommand ButtonClickBasket { get; set; }
+        public ICommand ButtonFilterByType { get; set; }
 
         private void OnClickShowShop()
         {
             StartVisibility = "Hidden";
             ShopVisibility = "Visible";
+            BasketVisibility = "Hidden";
         }
 
         private void OnClickShowBasket()
         {
             ShopVisibility = "Hidden";
             BasketVisibility = "Visible";
+            StartVisibility = "Hidden";
+        }
+
+        private void OnClickFilerByType(string Type)
+        {
+            _Products = new ObservableCollection<ProductModel>();
+            foreach (ProductModel Product in ModelLayer.Shop.GetListOfAllProducts())
+            {
+                if (Product.ProductType == Type)
+                {
+                    _Products.Add(Product);
+                }
+            }
+
         }
 
         public string StartVisibility
@@ -95,6 +117,21 @@ namespace Shop.Presentation.ViewModel
             }
         }
 
+        public List<string> Types
+        {
+            get
+            {
+                return _Types;
+            }
+            set
+            {
+                if (value.Equals(_Types))
+                    return;
+                _Types = value;
+                RaisePropertyChanged("Types");
+            }
+        }
+
         #endregion public API
 
         #region private
@@ -103,6 +140,7 @@ namespace Shop.Presentation.ViewModel
         public string _ShopVisibility = "Hidden";
         public string _BasketVisibility = "Hidden";
         private ObservableCollection<ProductModel> _Products;
+        private List<string> _Types;
         private ModelAbstractAPI ModelLayer;
 
         #endregion private

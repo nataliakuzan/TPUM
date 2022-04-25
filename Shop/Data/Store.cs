@@ -47,13 +47,16 @@ namespace Shop.Data
             Products.Add(new Product("Black Top", 14.5f, 12, TopsList));
             Products.Add(new Product("Red Top", 13.4f, 10, TopsList));
             Products.Add(new Product("Blue Top", 17, 8, TopsList));
-            Products.Add(new Product("Blue Jeans", 20, 5, TrousersList));
+            Products.Add(new Product("Yellow Top", 12, 8, TopsList));
+            Products.Add(new Product("Blue Jeans", 20.9f, 5, TrousersList));
             Products.Add(new Product("Gray Jeans", 20, 6, TrousersList));
+            Products.Add(new Product("Black Trousers", 22.6f, 6, TrousersList));
             Products.Add(new Product("Pink Long Dress", 30, 10, DressesList));
             Products.Add(new Product("Flower Dress", 25, 8, DressesList));
             Products.Add(new Product("Black Coat", 40, 5, CoatsList));
             Products.Add(new Product("Caramel Coat", 38, 3, CoatsList));
             Products.Add(new Product("White Shirt", 18, 6, ShirtsList));
+            Products.Add(new Product("Striped Shirt", 19, 3, ShirtsList));
             Products.Add(new Product("Blue Shirt", 18, 8, ShirtsList));
             Products.Add(new Product("Brown Skirt", 22, 4, SkirtsList));
             Products.Add(new Product("Dark Blue Skirt", 20, 5, SkirtsList));

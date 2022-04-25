@@ -27,25 +27,31 @@
             <Button Content="Start" Height="30" Width="120" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B" Command="{Binding ButtonClickShop}" Canvas.Left="700" Canvas.Top="480"/>
         </Canvas>
         <Canvas Visibility="{Binding ShopVisibility}" Grid.ColumnSpan="2">
-            <ItemsControl Foreground="#FF2C2C2C" Height="389" Canvas.Left="52" Canvas.Top="50" Width="130">
+            <ItemsControl ItemsSource="{Binding Types}" Foreground="#FF2C2C2C" Height="389" Canvas.Left="52" Canvas.Top="50" Width="130">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Label/>
+                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B" Command="{Binding Path=DataContext.OnClickFilerByType, RelativeSource={RelativeSource AncestorType=ItemsControl}, Mode=Default}" CommandParameter="{Binding}">
+                            <TextBlock FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding}"/>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            <UniformGrid Height="389" Width="607" Canvas.Left="213" Canvas.Top="50">
+            <UniformGrid Height="400" Width="607" Canvas.Left="213" Canvas.Top="50">
                 <StackPanel Orientation="Vertical">
-                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="450">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="400">
                 <ItemsControl ItemsSource="{Binding Products}">
-                        <ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Width="160" Height="80" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B" >
-                                        <StackPanel Width="140" Height="60" Orientation="Horizontal">
+                                    <Button Width="193" Height="90" Foreground="#FF232323" BorderBrush="White" Background="#FFFFAB6B" >
+                                        <StackPanel Width="173" Height="70" Orientation="Horizontal">
                                             <TextBlock VerticalAlignment="Top" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductName}"/>
                                             <TextBlock Text="&#xA;"/>
-                                            <TextBlock Text="&#xA;"/>
-                                            <TextBlock VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductPrice, StringFormat=Price : \{0:c\}}"/>
+                                            <TextBlock Margin="10,10,0,0" VerticalAlignment="Bottom" FontSize="10" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductPrice, StringFormat=Price: \{0:c\}}"/>
                                         </StackPanel>
                                 </Button>
                             </DataTemplate>

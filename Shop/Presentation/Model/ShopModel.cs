@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Shop.Presentation.Model
@@ -26,6 +27,16 @@ namespace Shop.Presentation.Model
                                               Product.Types[0].Name));
             }
             return Products;
+        }
+
+        public List<string> GetListOfAllTypes()
+        {
+            List<string> Types = new List<string>();
+            foreach (Data.Product Product in Shop.GetProducts())
+            {
+                Types.Add(Product.Types[0].Name);
+            }
+            return Types.Distinct().ToList();
         }
     }
 }
