@@ -30,7 +30,7 @@
             <ItemsControl ItemsSource="{Binding Types}" Foreground="#FF2C2C2C" Height="389" Canvas.Left="52" Canvas.Top="50" Width="130">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B" Command="{Binding ButtonFilterByType}">
+                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B">
                             <TextBlock FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding}"/>
                         </Button>
                     </DataTemplate>
@@ -50,10 +50,8 @@
                                     <Button Width="193" Height="90" Foreground="#FF232323" BorderBrush="White" Background="#FFFFAB6B" >
                                         <StackPanel Width="173" Height="70" Orientation="Horizontal">
                                             <TextBlock VerticalAlignment="Top" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductName}"/>
-                                            <TextBlock Text="&#xA;"/>
                                             <TextBlock Margin="10,10,0,0" VerticalAlignment="Center" FontSize="10" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductPrice, StringFormat=Price: \{0:c\}}"/>
-                                            <TextBlock Text="&#xA;"/>
-                                            <TextBlock VerticalAlignment="Bottom" FontSize="8" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductQuantity, StringFormat=Qty: {0:#}}"/>
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="8" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductQuantity, StringFormat=Qty: {0:#}}"/>
                                         </StackPanel>
                                 </Button>
                             </DataTemplate>

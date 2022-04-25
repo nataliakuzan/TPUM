@@ -15,6 +15,14 @@ namespace Shop.BusinessLogic
         
         private IOrderFactory OrderFactory;
 
+        public OrderCreator()
+        {
+            ProductRepository = new ProductRepository();
+            OrderRepository = new OrderRepository();
+            BasketItemFactory = new BasketItemFactory();
+            OrderFactory = new OrderFactory();
+        }
+
         public OrderCreator(
             IProductRepository ProductRepository,
             IOrderRepository OrderRepository,

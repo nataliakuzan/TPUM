@@ -9,6 +9,7 @@ namespace Shop.Presentation.Model
     {
         public abstract IBusinessLogicLayer ShopLogicLayer { get; }
         public abstract ShopModel Shop { get; }
+        public abstract OrderModel Order { get; }
 
         public static ModelAbstractAPI CreateAPI(IBusinessLogicLayer LogicLayer = default(IBusinessLogicLayer))
         {
@@ -26,5 +27,6 @@ namespace Shop.Presentation.Model
 
         public override IBusinessLogicLayer ShopLogicLayer { get; }
         public override ShopModel Shop { get; }
+        public override OrderModel Order { get; }
     }
 }

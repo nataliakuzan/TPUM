@@ -9,9 +9,9 @@ namespace Shop.Presentation.Model
     {
         private OrderCreator OrderCreator;
 
-        public OrderModel(OrderCreator orderCreator)
+        public OrderModel()
         {
-            this.OrderCreator = orderCreator;
+            this.OrderCreator = new OrderCreator();
         }
     }
 }
