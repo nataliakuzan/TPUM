@@ -51,7 +51,9 @@
                                         <StackPanel Width="173" Height="70" Orientation="Horizontal">
                                             <TextBlock VerticalAlignment="Top" FontSize="12" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductName}"/>
                                             <TextBlock Text="&#xA;"/>
-                                            <TextBlock Margin="10,10,0,0" VerticalAlignment="Bottom" FontSize="10" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductPrice, StringFormat=Price: \{0:c\}}"/>
+                                            <TextBlock Margin="10,10,0,0" VerticalAlignment="Center" FontSize="10" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductPrice, StringFormat=Price: \{0:c\}}"/>
+                                            <TextBlock Text="&#xA;"/>
+                                            <TextBlock VerticalAlignment="Bottom" FontSize="8" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding ProductQuantity, StringFormat=Qty: {0:#}}"/>
                                         </StackPanel>
                                 </Button>
                             </DataTemplate>
