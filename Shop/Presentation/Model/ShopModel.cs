@@ -7,7 +7,7 @@ namespace Shop.Presentation.Model
 {
     public class ShopModel
     {
-        private Data.Store Shop { get; }
+        private Data.IStore Shop { get; }
 
         public ShopModel()
         {

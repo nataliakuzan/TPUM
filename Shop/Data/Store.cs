@@ -4,7 +4,19 @@ using System.Text;
 
 namespace Shop.Data
 {
-    public class Store
+    public interface IStore
+    {
+        void Initialize();
+        void AddProduct(Product product);
+        void ReplaceProduct(Product Product);
+        Product GetProductById(int Id);
+        Product GetProductByName(string Name);
+        List<Product> GetProductByTypes(ProductType Type);
+        void AddOrder(Order order);
+        List<Product> GetProducts();
+    }
+
+    public class Store : IStore
     {
         private List<Product> Products;
 

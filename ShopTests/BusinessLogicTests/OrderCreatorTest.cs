@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop.BusinessLogic;
 using Moq;
-using System;
 using Shop.Data;
 using System.Collections.Generic;
 

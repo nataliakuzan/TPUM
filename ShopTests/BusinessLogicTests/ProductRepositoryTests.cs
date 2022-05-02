@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop.BusinessLogic;
 using Shop.Data;
-using System;
 using System.Collections.Generic;
 
 namespace Shop.BussinessLogicTests

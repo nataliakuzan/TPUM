@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Shop.Data;
 
 namespace Shop.BusinessLogic
@@ -10,9 +8,9 @@ namespace Shop.BusinessLogic
         private IProductRepository ProductRepository;
 
         private IOrderRepository OrderRepository;
-        
+
         private IBasketItemFactory BasketItemFactory;
-        
+
         private IOrderFactory OrderFactory;
 
         public OrderCreator()
