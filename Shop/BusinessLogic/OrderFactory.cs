@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Shop.BusinessLogic
 {
-    public class OrderFactory : IOrderFactory
+    internal class OrderFactory : IOrderFactory
     {
         public Order CreateOrder(List<BasketItem> BasketItems, string Name, string LastName, string Address)
         {

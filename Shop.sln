@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicTest", "ShopTests\BusinessLogicTests\BusinessLogicTest.csproj", "{D990647D-814F-4941-A025-2DE3977BA4FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Shop\Presentation\Presentation.csproj", "{5962EFC5-F5DF-466A-8186-D523F19C264B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{982DF189-95CA-4B27-8D90-D69C28EBDF51} = {982DF189-95CA-4B27-8D90-D69C28EBDF51}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTests", "ShopTests\DataTests\DataTests.csproj", "{EDD00819-FD5E-4D66-94ED-D80F622FE7A0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "Shop\Presentation\View\View.csproj", "{FE37DD83-4149-4005-AA77-B90BEBB7A726}"
@@ -35,10 +30,6 @@ Global
 		{D990647D-814F-4941-A025-2DE3977BA4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D990647D-814F-4941-A025-2DE3977BA4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D990647D-814F-4941-A025-2DE3977BA4FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5962EFC5-F5DF-466A-8186-D523F19C264B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5962EFC5-F5DF-466A-8186-D523F19C264B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5962EFC5-F5DF-466A-8186-D523F19C264B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5962EFC5-F5DF-466A-8186-D523F19C264B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EDD00819-FD5E-4D66-94ED-D80F622FE7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDD00819-FD5E-4D66-94ED-D80F622FE7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDD00819-FD5E-4D66-94ED-D80F622FE7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU

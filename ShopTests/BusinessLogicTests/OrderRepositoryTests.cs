@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Shop.BusinessLogic;
 using Shop.Data;
 using System.Collections.Generic;
@@ -16,13 +17,15 @@ namespace Shop.BussinessLogicTests
 
             List<BasketItem> list = new List<BasketItem>();
 
-            BasketItemFactory basketItemFactory = new BasketItemFactory();
-            list.Add(basketItemFactory.CreateBasketItem(new Product("Blue Jeans", 20, 5, ProductTypeList), 2));
+            Mock<IBasketItemFactory> basketItemFactory = new Mock<IBasketItemFactory>();
+            basketItemFactory.Setup(x => x.CreateBasketItem(new Product("Blue Jeans", 20, 5, ProductTypeList), 2));
+            BasketItem expectedBasketItem = new BasketItem(new Product("Blue Jeans", 20, 5, ProductTypeList), 2);
+            list.Add(expectedBasketItem);
 
             Store Shop = new Store();
 
-            IOrderRepository repository = new OrderRepository();
-            repository.Save(Shop, new Order(list, "Anna", "Delvey", "Manhattan 101, New York"));
+            Mock<IOrderRepository> repository = new Mock<IOrderRepository>();
+            repository.Setup(x => x.Save(Shop, new Order(list, "Anna", "Delvey", "Manhattan 101, New York")));
 
         }
     }

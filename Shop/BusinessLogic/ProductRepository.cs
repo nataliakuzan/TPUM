@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Shop.BusinessLogic
 {
-    public class ProductRepository : IProductRepository
+    internal class ProductRepository : IProductRepository
     {
         public void Save(Store Shop, Product Product)
         {
