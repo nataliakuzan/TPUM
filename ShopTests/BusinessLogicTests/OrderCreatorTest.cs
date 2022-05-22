@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shop.BusinessLogic;
+using Shop.ServerBusinessLogic;
 using Moq;
-using Shop.Data;
+using Shop.ServerData;
 using System.Collections.Generic;
 
-namespace Shop.BussinessLogicTests
+namespace Shop.ServerBussinessLogicTests
 {
     [TestClass]
     public class OrderCreatorTest

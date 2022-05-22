@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shop.Data;
+using Shop.ServerData;
 using System.Collections.Generic;
 
-namespace Shop.DataTests
+namespace Shop.ServerDataTests
 {
     [TestClass]
     public class BasketItemTests
