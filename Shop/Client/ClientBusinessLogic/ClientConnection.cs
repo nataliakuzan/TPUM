@@ -45,5 +45,10 @@ namespace ClientBusinessLogic
         {
             await WebSocketClient.Disconnect();
         }
+
+        public async Task SendAsync(string message)
+        {
+            await WebSocketClient.CurrentConnection.SendAsync(message);
+        }
     }
 }

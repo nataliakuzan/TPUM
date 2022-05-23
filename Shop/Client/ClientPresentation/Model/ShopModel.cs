@@ -1,18 +1,22 @@
-﻿using System;
+﻿using ClientBusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Shop.Presentation.Model
 {
     public class ShopModel
     {
         private ServerData.IStore Shop { get; }
+        public IClientConnection Connection;
 
         public ShopModel()
         {
             Shop = new ServerData.Store();
             Shop.Initialize();
+            Connection = new ClientConnection();
         }
 
         public List<ProductModel> GetListOfAllProducts()
@@ -37,6 +41,16 @@ namespace Shop.Presentation.Model
                 Types.Add(Product.Types[0].Name);
             }
             return Types.Distinct().ToList();
+        }
+
+        public async Task SendMessage(string message)
+        {
+            await Connection.SendAsync(message);
+        }
+
+        public bool ClientConnected()
+        {
+            return Connection.Connected;
         }
     }
 }

@@ -12,5 +12,7 @@ namespace ClientBusinessLogic
         Task<bool> Connect(Uri peerUri);
 
         Task Disconnect();
+
+        Task SendAsync(string message);
     }
 }

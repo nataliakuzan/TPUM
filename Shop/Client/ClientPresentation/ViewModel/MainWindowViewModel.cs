@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Shop.Presentation.ViewModel
@@ -33,6 +34,8 @@ namespace Shop.Presentation.ViewModel
             ButtonClickShop = new RelayCommand(() => OnClickShowShop());
             ButtonClickBasket = new RelayCommand(() => OnClickShowBasket());
             ButtonFilterByType = new RelayCommand(() => OnClickFilerByType());
+
+            Task task = ConnectToServer();
         }
 
         public ICommand ButtonClickShop { get; set; }
@@ -71,6 +74,7 @@ namespace Shop.Presentation.ViewModel
             get => _StartVisibility;
             set
             {
+                //ModelLayer.Shop.SendMessage("echo");
                 if (value.Equals(_StartVisibility))
                     return;
                 _StartVisibility = value;
@@ -130,6 +134,28 @@ namespace Shop.Presentation.ViewModel
                 _Types = value;
                 RaisePropertyChanged("Types");
             }
+        }
+
+        private async Task ConnectToServer()
+        {
+            if (!ModelLayer.Shop.ClientConnected())
+            {
+                bool result = await ModelLayer.Shop.Connection.Connect(new Uri("ws://localhost:8081"));
+                if (result)
+                {
+                    _Products.Clear();
+                    foreach (Model.ProductModel product in ModelLayer.Shop.GetListOfAllProducts())
+                    {
+                        _Products.Add(product);
+                    }
+                }
+            }
+            else
+            {
+                await ModelLayer.Shop.Connection.Disconnect();
+                _Products.Clear();
+            }
+
         }
 
         #endregion public API
