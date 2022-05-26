@@ -22,44 +22,18 @@ namespace ServerPresentation
         {
             Console.WriteLine("[Server]: Client connected");
             WebSocketServer.CurrentConnection = webSocketConnection;
-            webSocketConnection.onMessage = ParseMessage;
+            webSocketConnection.onMessage = MessageHandler;
             webSocketConnection.onClose = () => { Console.WriteLine("[Server]: Connection closed"); };
             webSocketConnection.onError = () => { Console.WriteLine("[Server]: Connection error encountered"); };
         }
 
-        static async void ParseMessage(string message)
+        static async void MessageHandler(string message)
         {
             Console.WriteLine($"[Client]: {message}");
-            Route Routes = new Route();
 
-            EndPoint Endpoint = Routes.GetEndPoint(GetRoute(message));
+            CommandExecuter CommandExecuter = new CommandExecuter();
 
-            string Response;
-
-            switch (GetAction(message))
-            {
-                case "ListAll":
-                    Response = Endpoint.ListAll();
-                    break;
-                case "Create":
-                    Response = Endpoint.Create();
-                    break;
-                default:
-                    Response = "Method does not exist";
-                    break;
-            }
-
-            await SendMessageAsync(Response);
-        }
-
-        static string GetRoute(string message)
-        {
-            return "product";
-        }
-
-        static string GetAction(string message)
-        {
-            return "ListAll";
+            await SendMessageAsync(CommandExecuter.Execute(message));
         }
 
         static async Task SendMessageAsync(string message)

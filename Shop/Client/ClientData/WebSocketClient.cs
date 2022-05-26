@@ -20,7 +20,7 @@ namespace ClientData
             {
                 case WebSocketState.Open:
                     log($"Opening WebSocket connection to remote server {peer}");
-                    WebSocketConnection _socket = new ClintWebSocketConnection(m_ClientWebSocket, peer, log);
+                    WebSocketConnection _socket = new ClientWebSocketConnection(m_ClientWebSocket, peer, log);
                     CurrentConnection = _socket;
                     OnConnected?.Invoke();
                     return _socket;
@@ -39,9 +39,9 @@ namespace ClientData
 
         #region private
 
-        private class ClintWebSocketConnection : WebSocketConnection
+        private class ClientWebSocketConnection : WebSocketConnection
         {
-            public ClintWebSocketConnection(ClientWebSocket clientWebSocket, Uri peer, Action<string> log)
+            public ClientWebSocketConnection(ClientWebSocket clientWebSocket, Uri peer, Action<string> log)
             {
                 m_ClientWebSocket = clientWebSocket;
                 m_Peer = peer;

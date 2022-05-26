@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandExecuter.cs" />
+    <Compile Include="CommandParser.cs" />
     <Compile Include="ProductListDTO.cs" />
     <Compile Include="EndPoint.cs" />
     <Compile Include="Extensions.cs" />
@@ -63,7 +65,7 @@
       <Name>ServerBusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServerData\ServerData.csproj">
-      <Project>{ee961df4-0821-405a-96fc-ad267a02d4f2}</Project>
+      <Project>{EE961DF4-0821-405A-96FC-AD267A02D4F2}</Project>
       <Name>ServerData</Name>
     </ProjectReference>
   </ItemGroup>

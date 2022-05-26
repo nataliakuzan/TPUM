@@ -18,9 +18,15 @@ namespace ServerPresentation
             );
         }
 
+        public bool IsSupported(string Route)
+        {
+            return this.EndPointsRoute.ContainsKey(Route);
+        }
+
         public EndPoint GetEndPoint(string Route)
         {
-            return this.EndPointsRoute[Route];
+
+            return this.IsSupported(Route) ? this.EndPointsRoute[Route] : null;
         }
     }
 }
