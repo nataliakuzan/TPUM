@@ -10,6 +10,8 @@ namespace ServerPresentation
     {
         string ListAll();
 
+        string ListAllByFilter(string Filter);
+
         string Create();
     }
 }

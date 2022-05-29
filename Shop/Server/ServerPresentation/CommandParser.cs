@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServerPresentation
 {
-    class CommandParser
+    public class CommandParser
     {
         private String Route;
         private String Action;
@@ -58,7 +54,7 @@ namespace ServerPresentation
 
         private String[] Parse(string Command)
         {
-            char[] separator = { ',', ' ' };
+            char[] separator = { ' ' };
             String[] elements = Command.Split(separator, 3);
 
             if (elements.Length < 2)

@@ -14,17 +14,21 @@ namespace Shop.ServerData
         List<Product> GetProductByTypes(ProductType Type);
         void AddOrder(Order order);
         List<Product> GetProducts();
+        List<ProductType> GetTypes();
     }
 
     public class Store : IStore
     {
         private List<Product> Products;
 
+        private List<Product> Filtered;
+
         private List<Order> Orders;
 
         public Store()
         {
             Products = new List<Product>();
+            Filtered = new List<Product>();
             Orders = new List<Order>();
         }
 
@@ -97,7 +101,15 @@ namespace Shop.ServerData
 
         public List<Product> GetProductByTypes(ProductType Type)
         {
-            return Products.FindAll(x => x.Types.Contains(Type));
+            Filtered.Clear();
+            foreach(Product product in Products)
+            {
+                if (product.Types[0].Name.Equals(Type.Name))
+                {
+                    Filtered.Add(product);
+                }
+            }
+            return Filtered;
         }
 
         public void AddOrder(Order order)
@@ -108,6 +120,25 @@ namespace Shop.ServerData
         public List<Product> GetProducts()
         {
             return Products;
+        }
+
+        public List<ProductType> GetTypes()
+        {
+            List<ProductType> Types = new List<ProductType>();
+            List<string> TypesName = new List<string>();
+            foreach (Product Product in Products)
+            {
+                foreach (ProductType ProductType in Product.Types)
+                {
+                    if (!TypesName.Contains(ProductType.Name))
+                    {
+                        Types.Add(ProductType);
+                        TypesName.Add(ProductType.Name);
+                    }
+                    
+                }
+            }
+            return Types;
         }
     }
 }

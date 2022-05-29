@@ -1,5 +1,6 @@
 ﻿using ClientData;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
@@ -8,8 +9,6 @@ namespace ClientBusinessLogic
 {
     public class ClientConnection : IClientConnection
     {
-        public Action<string> ConnectionLogger { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         public bool Connected
         {
             get
@@ -25,18 +24,17 @@ namespace ClientBusinessLogic
 
         public async Task<bool> Connect(Uri peerUri)
         {
+            List<string> logOutput = new List<string>();
             try
             {
-                ConnectionLogger?.Invoke($"Establishing connection to {peerUri.OriginalString}");
-
-                await WebSocketClient.Connect(peerUri, ConnectionLogger);
+                await WebSocketClient.Connect(peerUri, message => logOutput.Add(message));
 
                 return await Task.FromResult(true);
             }
             catch (WebSocketException e)
             {
                 Debug.WriteLine($"Caught web socket exception {e.Message}");
-                ConnectionLogger?.Invoke(e.Message);
+                logOutput.Add(e.Message);
                 return await Task.FromResult(false);
             }
         }
@@ -49,6 +47,14 @@ namespace ClientBusinessLogic
         public async Task SendAsync(string message)
         {
             await WebSocketClient.CurrentConnection.SendAsync(message);
+        }
+
+        public void SetMessageHandler(Action<string> MessageHandler)
+        {
+            if (Connected)
+            {
+                WebSocketClient.CurrentConnection.onMessage = MessageHandler;
+            }
         }
     }
 }

@@ -32,7 +32,7 @@
             return Response;
         }
 
-        private bool Parse (string message)
+        private bool Parse(string message)
         {
             commandParser = new CommandParser(message);
 
@@ -60,16 +60,24 @@
             switch (commandParser.getAction())
             {
                 case "ListAll":
-                    Response = Endpoint.ListAll();
+                    Response = AddRouteAndActionToResponse(Endpoint.ListAll());
+                    break;
+                case "ListAllByFilter":
+                    Response = AddRouteAndActionToResponse(Endpoint.ListAllByFilter(commandParser.getContent()));
                     break;
                 case "Create":
-                    Response = Endpoint.Create();
+                    Response = AddRouteAndActionToResponse(Endpoint.Create());
                     break;
                 default:
                     Response = "Action does not exist";
                     break;
             }
             return true;
+        }
+
+        private string AddRouteAndActionToResponse(string Response)
+        {
+            return commandParser.getRoute() + " " + commandParser.getAction() + " " + Response;
         }
     }
 }

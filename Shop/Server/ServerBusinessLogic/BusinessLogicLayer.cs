@@ -10,6 +10,7 @@ namespace Shop.ServerBusinessLogic
         Store Shop { get; set; }
         IProductRepository ProductRepository { get; set; }
         IOrderRepository OrderRepository { get; set; }
+        ITypeRepository TypeRepository { get; set; }
         IDataLayer ShopData { get; set; }
         BusinessLogicLayer Create(IDataLayer ShopData = default(IDataLayer));
     }
@@ -19,6 +20,7 @@ namespace Shop.ServerBusinessLogic
         public Store Shop { get; set; }
         public IProductRepository ProductRepository { get; set; }
         public IOrderRepository OrderRepository { get; set; }
+        public ITypeRepository TypeRepository { get; set; }
         public IDataLayer ShopData { get; set; }
 
         public BusinessLogicLayer()
@@ -27,6 +29,7 @@ namespace Shop.ServerBusinessLogic
             Shop = new Store();
             ProductRepository = new ProductRepository();
             OrderRepository = new OrderRepository();
+            TypeRepository = new TypeRepository();
         }
 
         public BusinessLogicLayer(IDataLayer ShopData)
@@ -35,6 +38,7 @@ namespace Shop.ServerBusinessLogic
             Shop = new Store();
             ProductRepository = new ProductRepository();
             OrderRepository = new OrderRepository();
+            TypeRepository = new TypeRepository();
         }
 
         public BusinessLogicLayer Create(IDataLayer ShopData = default(IDataLayer))

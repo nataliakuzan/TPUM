@@ -8,12 +8,12 @@ namespace ServerPresentation
 {
     class Program
     {
-        public static IBusinessLogicLayer businessLogic;
+        public static IBusinessLogicLayer LogicLayer;
 
         static async Task Main(string[] args)
         {
-            businessLogic = new BusinessLogicLayer();
-            businessLogic.Shop.Initialize();
+            LogicLayer = new BusinessLogicLayer();
+            LogicLayer.Shop.Initialize();
             Console.WriteLine("Server started");
             await WebSocketServer.Server(8081, ConnectionHandler);
         }

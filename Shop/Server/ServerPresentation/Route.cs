@@ -13,7 +13,14 @@ namespace ServerPresentation
             this.EndPointsRoute.Add(
                 "product",
                 new ProductEndPoint(
-                    new ProductSerializer()
+                    new ProductSerializer(),
+                    new TypeSerializer()
+                )
+            );
+            this.EndPointsRoute.Add(
+                "type",
+                new TypeEndPoint(
+                    new TypeSerializer()
                 )
             );
         }

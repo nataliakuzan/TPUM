@@ -30,8 +30,8 @@
             <ItemsControl ItemsSource="{Binding Types}" Foreground="#FF2C2C2C" Height="389" Canvas.Left="52" Canvas.Top="50" Width="130">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B" Command="{Binding ButtonFilterByType}">
-                            <TextBlock FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding}"/>
+                        <Button Height="50" Foreground="#FF232323" BorderBrush="White" Background="#FFFF6B6B" Command="{Binding DataContext.ButtonFilterByType, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}" CommandParameter="{Binding Content.Text, RelativeSource={RelativeSource Mode=Self}}">
+                            <TextBlock FontFamily="Open Sans" Foreground="#FF232323" Text="{Binding TypeName}"/>
                         </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
@@ -63,6 +63,37 @@
             <Button Content="Add to Basket" Height="30" Width="120" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFF6B6B" Background="#FFFF6B6B" Command="{Binding ButtonClickBasket}" Canvas.Left="700" Canvas.Top="480"/>
         </Canvas>
         <Canvas Visibility="{Binding BasketVisibility}">
+            <TextBlock Margin="50,34,50,349" FontSize="30" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323">
+            Your Basket Summary
+            </TextBlock>
+            <TextBlock Margin="50,85,50,323" FontSize="20" FontWeight="Bold" FontFamily="Open Sans" Foreground="#FF232323">
+            Your Information
+            </TextBlock>
+            <TextBlock Margin="50,120,50,305" FontSize="15" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+            First Name :
+            </TextBlock>
+            <TextBox Margin="140,120,50,305" MaxLength="30" FontSize="15" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+
+            </TextBox>
+            <TextBlock Margin="50,143,50,282" FontSize="15" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+            Last Name :
+            </TextBlock>
+            <TextBox Margin="140,143,50,282" MaxLength="30" FontSize="15" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+
+            </TextBox>
+            <TextBlock Margin="50,167,50,260" FontSize="15" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+            Address :
+            </TextBlock>
+            <TextBox Margin="140,167,50,259" MaxLength="30" FontSize="15" FontWeight="DemiBold" FontFamily="Open Sans" Foreground="#FF232323">
+
+            </TextBox>
+            <DataGrid Margin="50,200,50,95" Background="#FFFFEBEB" BorderBrush="#FFFFEBEB">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding ProductQuantity}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding ProductPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <Button Content="Order" Height="30" Width="120" FontWeight="DemiBold" FontFamily="Montserrat" Foreground="#FF232323" BorderBrush="#FFFFAB6B" Background="#FFFFAB6B" Command="{Binding ButtonClickShop}" Canvas.Left="700" Canvas.Top="480"/>
         </Canvas>
     </Grid>

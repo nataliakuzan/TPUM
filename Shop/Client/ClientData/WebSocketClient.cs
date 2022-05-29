@@ -15,7 +15,9 @@ namespace ClientData
         public static async Task<WebSocketConnection> Connect(Uri peer, Action<string> log)
         {
             ClientWebSocket m_ClientWebSocket = new ClientWebSocket();
+            
             await m_ClientWebSocket.ConnectAsync(peer, CancellationToken.None);
+
             switch (m_ClientWebSocket.State)
             {
                 case WebSocketState.Open:
@@ -87,7 +89,7 @@ namespace ClientData
                 disconnecting = false;
                 try
                 {
-                    byte[] buffer = new byte[1024];
+                    byte[] buffer = new byte[65536];
                     while (true)
                     {
                         if (disconnecting)

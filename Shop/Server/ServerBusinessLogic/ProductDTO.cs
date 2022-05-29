@@ -1,9 +1,13 @@
-﻿using System.Xml.Serialization;
+﻿using Shop.ServerData;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ServerPresentation
+namespace Shop.ServerBusinessLogic
 {
-    [XmlRoot("Product")]
-    public class ProductDTO : ISerializable
+    public class ProductDTO
     {
         public int ProductId { get; set; }
 
@@ -18,6 +22,15 @@ namespace ServerPresentation
         public ProductDTO()
         {
 
+        }
+
+        public ProductDTO(Product product)
+        {
+            ProductId = product.Id;
+            ProductName = product.Name;
+            ProductPrice = product.Price;
+            ProductQuantity = product.Quantity;
+            ProductType = product.Types[0].Name;
         }
 
         public ProductDTO(int ID, string Name, float Price, int Qty, string Type)

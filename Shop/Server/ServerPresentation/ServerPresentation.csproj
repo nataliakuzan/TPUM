@@ -53,6 +53,10 @@
     <Compile Include="Route.cs" />
     <Compile Include="ProductSerializer.cs" />
     <Compile Include="Serializer.cs" />
+    <Compile Include="TypeDTO.cs" />
+    <Compile Include="TypeEndPoint.cs" />
+    <Compile Include="TypeSerializer.cs" />
+    <Compile Include="TypesListDTO.cs" />
     <Compile Include="WebSocketConnection.cs" />
     <Compile Include="WebSocketServer.cs" />
   </ItemGroup>
@@ -65,7 +69,7 @@
       <Name>ServerBusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServerData\ServerData.csproj">
-      <Project>{EE961DF4-0821-405A-96FC-AD267A02D4F2}</Project>
+      <Project>{ee961df4-0821-405a-96fc-ad267a02d4f2}</Project>
       <Name>ServerData</Name>
     </ProjectReference>
   </ItemGroup>

@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Threading;
+using GalaSoft.MvvmLight.Command;
 
 namespace Shop.Presentation.ViewModel
 {
@@ -19,23 +19,28 @@ namespace Shop.Presentation.ViewModel
 
         public MainWindowViewModel(ModelAbstractAPI modelAbstractAPI)
         {
+            MessageHandler = new MessageHandler();
+            MessageHandler.addCommandHandler("product ListAll", HandleProductList);
+            MessageHandler.addCommandHandler("type ListAll", HandleTypeList);
+            MessageHandler.addCommandHandler("product ListAllByFilter", HandleProductList);
+
             ModelLayer = modelAbstractAPI;
+
+            StartRequesting();
+
             _Products = new ObservableCollection<ProductModel>();
-            foreach (ProductModel Product in ModelLayer.Shop.GetListOfAllProducts())
-            {
-                _Products.Add(Product);
-            }
-            _Types = new List<string>();
-            foreach (string Type in ModelLayer.Shop.GetListOfAllTypes())
-            {
-                _Types.Add(Type);
-            }
+
+            _Types = new ObservableCollection<TypeModel>();
 
             ButtonClickShop = new RelayCommand(() => OnClickShowShop());
             ButtonClickBasket = new RelayCommand(() => OnClickShowBasket());
-            ButtonFilterByType = new RelayCommand(() => OnClickFilerByType());
+            ButtonFilterByType = new RelayCommand<string>(parm => OnClickFilterByType(parm));
+        }
 
-            Task task = ConnectToServer();
+        private async void StartRequesting()
+        {
+            await SendCommand("product", "ListAll", null);
+            await SendCommand("type", "ListAll", null);
         }
 
         public ICommand ButtonClickShop { get; set; }
@@ -56,17 +61,16 @@ namespace Shop.Presentation.ViewModel
             StartVisibility = "Hidden";
         }
 
-        private void OnClickFilerByType()
+        private async void OnClickFilterByType(string type)
         {
             _Products.Clear();
-            foreach (ProductModel Product in ModelLayer.Shop.GetListOfAllProducts())
-            {
-                if (Product.ProductType.Equals("Tops"))
-                {
-                    _Products.Add(Product);
-                }
-            }
 
+            ServerPresentation.TypesListDTO typeListDTO = new ServerPresentation.TypesListDTO();
+            typeListDTO.Add(new ServerPresentation.TypeDTO(type));
+
+            ServerPresentation.TypeSerializer typeSerializer = new ServerPresentation.TypeSerializer();
+
+            await SendCommand("product", "ListAllByFilter", typeSerializer.parseObject(typeListDTO));
         }
 
         public string StartVisibility
@@ -74,7 +78,6 @@ namespace Shop.Presentation.ViewModel
             get => _StartVisibility;
             set
             {
-                //ModelLayer.Shop.SendMessage("echo");
                 if (value.Equals(_StartVisibility))
                     return;
                 _StartVisibility = value;
@@ -121,7 +124,7 @@ namespace Shop.Presentation.ViewModel
             }
         }
 
-        public List<string> Types
+        public ObservableCollection<TypeModel> Types
         {
             get
             {
@@ -138,26 +141,67 @@ namespace Shop.Presentation.ViewModel
 
         private async Task ConnectToServer()
         {
-            if (!ModelLayer.Shop.ClientConnected())
+            ClientBusinessLogic.ClientConnection clientConnection = new ClientBusinessLogic.ClientConnection();
+            if (!clientConnection.Connected)
             {
-                bool result = await ModelLayer.Shop.Connection.Connect(new Uri("ws://localhost:8081"));
+                bool result = await clientConnection.Connect(new Uri("ws://localhost:8081/"));
                 if (result)
                 {
-                    _Products.Clear();
-                    foreach (Model.ProductModel product in ModelLayer.Shop.GetListOfAllProducts())
-                    {
-                        _Products.Add(product);
-                    }
+                    clientConnection.SetMessageHandler(MessageHandler.HandleMessage);
                 }
             }
-            else
-            {
-                await ModelLayer.Shop.Connection.Disconnect();
-                _Products.Clear();
-            }
-
         }
 
+        private async Task SendCommand(string Route, string Action, string Content)
+        {
+            ClientBusinessLogic.ClientConnection clientConnection = new ClientBusinessLogic.ClientConnection();
+            if (!clientConnection.Connected)
+            {
+                await ConnectToServer();
+            }
+
+            if (Content != null)
+            {
+                await clientConnection.SendAsync(Route + " " + Action + " " + Content);
+            } else
+            {
+                await clientConnection.SendAsync(Route + " " + Action);
+            }
+        }
+
+        private void HandleProductList(string Content)
+        {
+            ServerPresentation.ProductSerializer productSerializer = new ServerPresentation.ProductSerializer();
+
+            ServerPresentation.ProductListDTO list = (ServerPresentation.ProductListDTO) productSerializer.parseXML(Content);
+
+            ObservableCollection<ProductModel> ProductModels = new ObservableCollection<ProductModel>();
+
+            foreach (ServerPresentation.ProductDTO Product in list.Products)
+            {
+                ProductModels.Add(new ProductModel(Product.ProductId,
+                                                    Product.ProductName,
+                                                    Product.ProductPrice,
+                                                    Product.ProductQuantity,
+                                                    Product.ProductType));
+            }
+            Products = ProductModels;
+        }
+
+        private void HandleTypeList(string Content)
+        {
+            ServerPresentation.TypeSerializer TypeSerializer = new ServerPresentation.TypeSerializer();
+
+            ServerPresentation.TypesListDTO list = (ServerPresentation.TypesListDTO)TypeSerializer.parseXML(Content);
+
+            ObservableCollection<TypeModel> Types = new ObservableCollection<TypeModel>();
+
+            foreach (var Type in list.Types)
+            {
+                Types.Add(new TypeModel(Type.Name));
+            }
+            this.Types = Types;
+        }
         #endregion public API
 
         #region private
@@ -166,8 +210,9 @@ namespace Shop.Presentation.ViewModel
         public string _ShopVisibility = "Hidden";
         public string _BasketVisibility = "Hidden";
         private ObservableCollection<ProductModel> _Products;
-        private List<string> _Types;
+        private ObservableCollection<TypeModel> _Types;
         private ModelAbstractAPI ModelLayer;
+        private MessageHandler MessageHandler;
 
         #endregion private
     }

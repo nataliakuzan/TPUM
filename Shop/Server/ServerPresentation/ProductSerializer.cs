@@ -8,11 +8,14 @@ namespace ServerPresentation
     {
         public override ISerializable parseXML(string XML)
         {
-            var reader = new System.Xml.Serialization.XmlSerializer(typeof(ProductDTO));
-            TextReader textReader = new StringReader(XML);
-            string overview = (string)reader.Deserialize(textReader);
+            ProductListDTO productList;
+            XmlSerializer serializer = new XmlSerializer(typeof(ProductListDTO));
+            using (TextReader reader = new StringReader(XML))
+            {
+                productList = (ProductListDTO)serializer.Deserialize(reader);
+            }
 
-            return new ProductDTO(1, "Fake", 10.0f, 2, "Fake");
+            return productList;
         }
 
         protected override XmlSerializer GetXMLSerializer(ISerializable Serializable)

@@ -55,6 +55,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shop\Client\ClientBusinessLogic\ClientBusinessLogic.csproj">
+      <Project>{7b8d6ddd-e533-4083-8f62-c83ea9c80e02}</Project>
+      <Name>ClientBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shop\Server\ServerPresentation\ServerPresentation.csproj">
+      <Project>{063e9725-6f94-4318-953e-ccef65cd6def}</Project>
+      <Name>ServerPresentation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
