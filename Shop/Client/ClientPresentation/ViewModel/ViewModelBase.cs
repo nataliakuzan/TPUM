@@ -7,7 +7,6 @@ namespace Shop.Presentation.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
-        private ModelAbstractAPI ModelAbstractAPI;
 
         #region INotifyPropertyChanged
 

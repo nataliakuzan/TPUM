@@ -5,6 +5,41 @@ using System.Windows.Input;
 
 namespace Shop.Presentation.ViewModel
 {
+    public class RelayCommand<T> : ICommand
+    {
+        public RelayCommand(Action<T> execute) : this(execute, null) { }
+
+        public RelayCommand(Action<T> execute, Func<T, bool> canExecute, bool keepTargetAlive = false)
+        {
+            this.m_Execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            this.m_CanExecute = canExecute;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute(object parameter)
+        {
+            if (this.m_CanExecute == null)
+                return true;
+            if (parameter == null)
+                return this.m_CanExecute((T)parameter);
+            return this.m_CanExecute((T)parameter);
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void Execute(object parameter)
+        {
+            this.m_Execute((T)parameter);
+        }
+
+        private readonly Action<T> m_Execute;
+        private readonly Func<T,bool> m_CanExecute;
+    }
+
     class RelayCommand : ICommand
     {
         #region constructors

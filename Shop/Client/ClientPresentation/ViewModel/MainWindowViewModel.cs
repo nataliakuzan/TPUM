@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Threading;
-using GalaSoft.MvvmLight.Command;
 
 namespace Shop.Presentation.ViewModel
 {
