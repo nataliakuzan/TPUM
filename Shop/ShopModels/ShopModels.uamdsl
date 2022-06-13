@@ -2,6 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="UAModelDesignerSolution.xslt"?>
 <UAModelDesignerSolution xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>ShopModels</Name>
-  <Projects />
+  <Projects>
+    <UAModelDesignerProject ProjectIdentifier="366e3ab4-dc47-49dd-ab6c-d6a049997845">
+      <Name>Model_0</Name>
+      <CSVFileName>$(ProjectFileName).csv</CSVFileName>
+      <BuildOutputDirectoryName>$(ProjectFileName)</BuildOutputDirectoryName>
+      <FileName>ShopModel.xml</FileName>
+    </UAModelDesignerProject>
+  </Projects>
   <ServerDetails codebase="" configuration="" />
 </UAModelDesignerSolution>
