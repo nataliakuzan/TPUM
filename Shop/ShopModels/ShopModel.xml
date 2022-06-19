@@ -22,7 +22,53 @@
       <q1:Property SymbolicName="cas:ProductType" DataType="String">
         <q1:BrowseName>ProductType</q1:BrowseName>
       </q1:Property>
+      <q1:Method SymbolicName="cas:DecreaseQuantity">
+        <q1:BrowseName>DecreaseQuantity</q1:BrowseName>
+      </q1:Method>
     </q1:Children>
     <q1:ClassName>ProductDTO</q1:ClassName>
   </q1:ObjectType>
+  <q1:ObjectType SymbolicName="cas:OrderDTO">
+    <q1:BrowseName>OrderDTO</q1:BrowseName>
+    <q1:Children>
+      <q1:Property SymbolicName="cas:OrderId" DataType="Integer">
+        <q1:BrowseName>OrderId</q1:BrowseName>
+      </q1:Property>
+      <q1:Object SymbolicName="cas:Items">
+        <q1:BrowseName>Items</q1:BrowseName>
+      </q1:Object>
+      <q1:Property SymbolicName="cas:ClientName" DataType="String">
+        <q1:BrowseName>ClientName</q1:BrowseName>
+      </q1:Property>
+      <q1:Property SymbolicName="cas:ClientLastName" DataType="String">
+        <q1:BrowseName>ClientLastName</q1:BrowseName>
+      </q1:Property>
+      <q1:Property SymbolicName="cas:ClientAddress" DataType="String">
+        <q1:BrowseName>ClientAddress</q1:BrowseName>
+      </q1:Property>
+      <q1:Method SymbolicName="cas:GetTotalItemQuantity">
+        <q1:BrowseName>GetTotalItemQuantity</q1:BrowseName>
+      </q1:Method>
+      <q1:Method SymbolicName="cas:GetTotalPrice">
+        <q1:BrowseName>GetTotalPrice</q1:BrowseName>
+      </q1:Method>
+    </q1:Children>
+  </q1:ObjectType>
+  <q1:ObjectType SymbolicName="cas:BasketItemDTO">
+    <q1:BrowseName>BasketItemDTO</q1:BrowseName>
+    <q1:Children>
+      <q1:Object SymbolicName="cas:BasketItemProduct">
+        <q1:BrowseName>BasketItemProduct</q1:BrowseName>
+      </q1:Object>
+      <q1:Property SymbolicName="cas:BasketItemQuantity" DataType="Integer">
+        <q1:BrowseName>BasketItemQuantity</q1:BrowseName>
+      </q1:Property>
+      <q1:Method SymbolicName="cas:GetTotalPrice">
+        <q1:BrowseName>GetTotalPrice</q1:BrowseName>
+      </q1:Method>
+    </q1:Children>
+  </q1:ObjectType>
+  <q1:DataType SymbolicName="cas:TypeDTO" BaseType="String">
+    <q1:BrowseName>TypeDTO</q1:BrowseName>
+  </q1:DataType>
 </q1:ModelDesign>

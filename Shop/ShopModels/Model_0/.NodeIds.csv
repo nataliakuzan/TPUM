@@ -1,0 +1,6 @@
+BasketItemDTO,38,ObjectType
+cas_BinarySchema,21,Variable
+cas_XmlSchema,25,Variable
+OrderDTO,30,ObjectType
+ProductDTO,1,ObjectType
+TypeDTO,42,DataType
